@@ -11,6 +11,7 @@ shorter_length = len(word_one)
 shorter_word,longer_word = word_one, word_two
 words = zip(word_one, word_two)
 word_list = list(words)
+flag = True
 
 populate_dict()
 if len(word_one) > len(word_two):
@@ -22,10 +23,12 @@ for element in range(shorter_length):
         continue
     if dict[word_list[element][0]] < dict[word_list[element][1]]:
         print(f'{word_one}, {word_two}')
+        flag = False
         break
     if dict[word_list[element][0]] > dict[word_list[element][1]]:
         print(f'{word_two}, {word_one}')
+        flag = False
         break
-    else:
-        print(f'{shorter_word}, {longer_word}')
+if flag:
+    print(f'{shorter_word}, {longer_word}')
 
